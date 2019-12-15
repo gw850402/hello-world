@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-nav-bar border title="单灯控制" left-arrow @click-left="onClickNavBarLeft"></van-nav-bar>
-    <van-search placeholder="搜索" autofocus shape="round" :maxlength="50" v-model="searchValue" @search="onSearchSingleLight"/>
+    <van-search placeholder="搜索" shape="round" :maxlength="50" v-model="searchValue" @search="onSearchSingleLight"/>
     <van-list v-model="loading" :finished="finished" finished-text="" @load="onListLoad">
       <van-cell-group >
         <van-cell v-for="light in singleLightList" :key="light.num" :title="light.name" >
