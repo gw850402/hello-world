@@ -1,0 +1,44 @@
+{
+  "id": "1561012",
+  "name": "myicon",
+  "font_family": "iconfont",
+  "css_prefix_text": "my-icon-",
+  "description": "myicon",
+  "glyphs": [
+    {
+      "icon_id": "883896",
+      "name": "灯泡",
+      "font_class": "dengpao",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "2915002",
+      "name": "灯泡",
+      "font_class": "deng-kai",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "3102903",
+      "name": "定时-",
+      "font_class": "dingshi-",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "8431683",
+      "name": "设备",
+      "font_class": "shebei",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "11799033",
+      "name": "设备管理",
+      "font_class": "shebeiguanli",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    }
+  ]
+}

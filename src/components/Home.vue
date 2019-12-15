@@ -3,7 +3,13 @@
     <van-nav-bar border title="首页"></van-nav-bar>
     <van-grid :column-num="3" :border="false" square>
       <van-grid-item text="单灯控制" v-slot:icon>
-        <van-icon class-prefix="my-icon" name="dengpao" color="#1296db" size="48"/>
+        <van-icon class-prefix="my-icon" name="deng-kai" color="#1296db" size="48"/>
+      </van-grid-item>
+      <van-grid-item text="群组控制" v-slot:icon>
+        <van-icon class-prefix="my-icon" name="shebei" color="#1296db" size="48"/>
+      </van-grid-item>
+      <van-grid-item text="定时设置" v-slot:icon>
+        <van-icon class-prefix="my-icon" name="dingshi-" color="#1296db" size="48"/>
       </van-grid-item>
     </van-grid>
   </div>
