@@ -2,7 +2,7 @@
   <div>
     <van-nav-bar border title="首页"></van-nav-bar>
     <van-grid :column-num="3" :border="false" square>
-      <van-grid-item text="单灯控制" v-slot:icon>
+      <van-grid-item text="单灯控制" to="/singleLight" v-slot:icon>
         <van-icon class-prefix="my-icon" name="deng-kai" color="#1296db" size="48"/>
       </van-grid-item>
       <van-grid-item text="群组控制" v-slot:icon>
