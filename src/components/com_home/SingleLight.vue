@@ -6,7 +6,7 @@
       <van-cell-group >
         <van-cell v-for="light in singleLightList" :key="light.num" :title="light.name" >
           <van-icon slot="icon" class-prefix="my-icon" name="dengpao" color="#1296db" style="line-height: inherit;"/>
-          <van-switch slot="right-icon" v-model="light.checked" @change="lightSwitchChange"/>
+          <van-switch slot="right-icon" v-model="light.checked" size="24px" @change="lightSwitchChange"/>
         </van-cell>
       </van-cell-group>
     </van-list>
