@@ -7,7 +7,7 @@
           <van-icon class-prefix="my-icon" name="deng-kai" color="#1296db" size="48"/>
         </template>
       </van-grid-item>
-      <van-grid-item text="群组控制">
+      <van-grid-item text="群组控制" to="/groupControl">
         <template v-slot:icon>
           <van-icon class-prefix="my-icon" name="shebei" color="#1296db" size="48"/>
         </template>
