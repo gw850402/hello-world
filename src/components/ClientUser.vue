@@ -4,7 +4,7 @@
     <UserInfo></UserInfo>
     <ComSplit></ComSplit>
     <van-cell-group >
-      <van-cell title="消息" is-link to="/setting/comPort"/>
+      <van-cell title="消息" is-link to="/setting/userMessage"/>
     </van-cell-group>
   </div>
 </template>

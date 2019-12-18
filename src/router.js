@@ -7,6 +7,7 @@ import setting from "./components/Setting.vue";
 import clientUser from "./components/ClientUser.vue";
 import singleLight from "./components/com_home/SingleLight.vue";
 import comPort from "./components/com_setting/ComPort.vue";
+import userMessage from "./components/client_user/UserMessage.vue";
 
 // 要告诉 vue 使用 vueRouter
 Vue.use(VueRouter);
@@ -31,6 +32,10 @@ const routes = [
   {
     path:"/setting/comPort",
     component: comPort
+  },
+  {
+    path:"/setting/userMessage",
+    component:userMessage
   },
   { 
     path: '/', 
