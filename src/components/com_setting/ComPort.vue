@@ -3,8 +3,10 @@
     <van-nav-bar :border="false" title="串口设置" left-arrow @click-left="onClickNavBarLeft"></van-nav-bar>
     <van-list v-model="loading" :finished="finished" @load="comport_onLoad">      
       <van-cell-group >
-        <van-cell v-for="comPort in comPortList" :key="comPort.num" :title="comPort.name" >          
-          <van-switch slot="right-icon" v-model="comPort.openStatus" size="24px" @change="comPortSwitchChange"/>
+        <van-cell v-for="comPort in comPortList" :key="comPort.num" :title="comPort.name" >
+          <template v-slot:right-icon>
+            <van-switch v-model="comPort.openStatus" size="24px" @change="comPortSwitchChange"/>
+          </template>
         </van-cell>
       </van-cell-group>
     </van-list>

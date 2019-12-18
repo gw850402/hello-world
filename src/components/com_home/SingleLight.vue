@@ -5,8 +5,12 @@
     <van-list v-model="loading" :finished="finished" finished-text="" @load="onListLoad">
       <van-cell-group >
         <van-cell v-for="light in singleLightList" :key="light.num" :title="light.name" >
-          <van-icon slot="icon" class-prefix="my-icon" name="dengpao" color="#1296db" style="line-height: inherit;"/>
-          <van-switch slot="right-icon" v-model="light.checked" size="24px" @change="lightSwitchChange"/>
+          <template v-slot:icon>
+            <van-icon class-prefix="my-icon" name="dengpao" color="#1296db" style="line-height: inherit;"/>
+          </template>
+          <template v-slot:right-icon>
+            <van-switch slot="right-icon" v-model="light.checked" size="24px" @change="lightSwitchChange"/>
+          </template>
         </van-cell>
       </van-cell-group>
     </van-list>

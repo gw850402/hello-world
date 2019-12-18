@@ -5,8 +5,8 @@
       <van-cell-group >
         <van-cell v-for="userMessage in userMessageList" :key="userMessage.num" @click="onClickUserMessage(userMessage)">
           <van-row>
-            <van-col span="12" class="message-title">{{userMessage.title}}</van-col>
-            <van-col span="12" class="message-datetime">{{userMessage.dateTime}}</van-col>
+            <van-col span="12" class="van-ellipsis message-title">{{userMessage.title}}</van-col>
+            <van-col span="12" class="van-ellipsis message-datetime">{{userMessage.dateTime}}</van-col>
           </van-row>
           <van-row class="van-ellipsis message-content">
             {{userMessage.content}}
