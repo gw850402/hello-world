@@ -12,7 +12,7 @@
           <van-icon class-prefix="my-icon" name="shebei" color="#1296db" size="48"/>
         </template>
       </van-grid-item>
-      <van-grid-item text="定时设置">
+      <van-grid-item text="定时设置" to="/scheduleSet">
         <template v-slot:icon>
           <van-icon class-prefix="my-icon" name="dingshi-" color="#1296db" size="48"/>
         </template>
