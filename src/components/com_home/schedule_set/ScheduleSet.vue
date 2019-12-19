@@ -1,6 +1,30 @@
 <template>
   <div>
-    
+    <van-nav-bar :border="true" title="定时设置" left-arrow @click-left="onClickNavBarLeft">
+      <template v-slot:right>
+        <van-icon name="plus" color="#1296db" @click="onClickScheduleSetPlus()"/>
+      </template>
+    </van-nav-bar>
+    <van-search placeholder="搜索" shape="round" :maxlength="50" v-model="searchValue" @search="onSearchScheduleSet"/>
+    <van-list v-model="loading" :finished="finished" finished-text="" @load="onScheduleSetListLoad">
+      <van-cell-group >
+        <van-swipe-cell v-for="schedule in scheduleSetList" :key="schedule.num">
+          <van-cell :border="true">
+            <template v-slot:title>
+              <span>{{schedule.title}}</span>
+              <van-tag round type="primary">{{schedule.number}}</van-tag>
+            </template>
+            <template v-slot:right-icon>
+              <van-switch slot="right-icon" size="24px" v-model="schedule.state" @change="scheduleSetSwitchChange"/>
+            </template>
+          </van-cell>
+          <template slot="right">
+            <van-button square type="primary" text="修改"/>
+            <van-button square type="danger" text="删除" />
+          </template>
+        </van-swipe-cell>
+      </van-cell-group >
+    </van-list>
   </div>
 </template>
 
@@ -35,17 +59,17 @@ export default {
       searchValue:'',
       loading:false,
       finished:true,
-      deviceGroupList:[
+      scheduleSetList:[
         {
           num:1,
-          title:"逸夫楼A座所有灯",
+          title:"每天早上6点定时开灯",
           number:2,
           state:true
         },
         {
           num:2,
-          title:"逸夫楼B座所有灯",
-          number:10,
+          title:"每天晚上11点定时关灯",
+          number:2,
           state:false
         }
       ],
@@ -56,17 +80,17 @@ export default {
       // 点击回退的时候当做地址回退
       this.$router.go(-1);
     },
-    onSearchGroupControl:function(){
+    onSearchScheduleSet:function(){
       
     },
-    onGroupControlListLoad:function(){
+    onScheduleSetListLoad:function(){
       
     },
-    groupSwitchChange:function(){
+    scheduleSetSwitchChange:function(){
       
     },
-    onClickGroupControlPlus:function(){
-      this.$router.push({path: '/addGroupControl'})
+    onClickScheduleSetPlus:function(){
+      this.$router.push({path: '/addScheduleSet'})
     }
   }
 }
