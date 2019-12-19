@@ -1,6 +1,10 @@
 <template>
   <div>
-    <van-nav-bar :border="true" title="群组控制" left-arrow @click-left="onClickNavBarLeft"></van-nav-bar>
+    <van-nav-bar :border="true" title="群组控制" left-arrow @click-left="onClickNavBarLeft">
+      <template v-slot:right>
+        <van-icon name="plus" color="#1296db" @click="onClickGroupControlPlus()"/>
+      </template>
+    </van-nav-bar>
     <van-search placeholder="搜索" shape="round" :maxlength="50" v-model="searchValue" @search="onSearchGroupControl"/>
     <van-list v-model="loading" :finished="finished" finished-text="" @load="onGroupControlListLoad">
       <van-cell-group >
@@ -84,6 +88,9 @@ export default {
     },
     groupSwitchChange:function(){
       
+    },
+    onClickGroupControlPlus:function(){
+      this.$router.push({path: '/addGroupControl'})
     }
   }
 }
