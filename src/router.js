@@ -6,8 +6,8 @@ import home from "./components/Home.vue";
 import setting from "./components/Setting.vue";
 import clientUser from "./components/ClientUser.vue";
 import singleLight from "./components/com_home/SingleLight.vue";
-import groupControl from "./components/com_home/GroupControl.vue";
-import AddGroupControl from "./components/com_home/AddGroupControl.vue";
+import groupControl from "./components/com_home/group_control/GroupControl.vue";
+import AddGroupControl from "./components/com_home/group_control/AddGroupControl.vue";
 import comPort from "./components/com_setting/ComPort.vue";
 import userMessage from "./components/client_user/UserMessage.vue";
 
