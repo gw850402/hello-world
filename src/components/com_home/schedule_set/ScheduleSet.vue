@@ -90,7 +90,7 @@ export default {
       
     },
     onClickScheduleSetPlus:function(){
-      this.$router.push({path: '/addScheduleSet'})
+      this.$router.push({path: '/addScheduleTask'})
     }
   }
 }

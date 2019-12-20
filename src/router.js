@@ -9,7 +9,8 @@ import singleLight from "./components/com_home/SingleLight.vue";
 import groupControl from "./components/com_home/group_control/GroupControl.vue";
 import addGroupControl from "./components/com_home/group_control/AddGroupControl.vue";
 import scheduleSet from "./components/com_home/schedule_set/ScheduleSet.vue";
-import addScheduleSet from "./components/com_home/schedule_set/AddScheduleSet.vue";
+import addScheduleTask from "./components/com_home/schedule_set/AddScheduleTask.vue";
+import taskDevices from "./components/com_home/schedule_set/TaskDevices.vue";
 import comPort from "./components/com_setting/ComPort.vue";
 import userMessage from "./components/client_user/UserMessage.vue";
 
@@ -47,8 +48,12 @@ const routes = [
     component: scheduleSet
   },
   {
-    path:"/addScheduleSet",
-    component:addScheduleSet
+    path:"/addScheduleTask",
+    component:addScheduleTask
+  },
+  {
+    path:"/taskDevices",
+    component:taskDevices
   },
   {
     path:"/setting/comPort",
