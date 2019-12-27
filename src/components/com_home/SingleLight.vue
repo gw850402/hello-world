@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-nav-bar border title="单灯控制" left-arrow @click-left="onClickNavBarLeft"></van-nav-bar>
-    <van-search placeholder="搜索" shape="round" :maxlength="50" v-model="searchValue" @search="onSearchSingleLight"/>
+    <van-search placeholder="搜索" shape="round" :maxlength="50" v-model="searchValue" @search="onSearchSingleLight" @input="onSearchSingleLight"/>
     <van-list v-model="loading" :finished="finished" finished-text="" @load="onListLoad">
       <van-cell-group >
         <van-cell v-for="light in singleLightList" :key="light.num" :title="light.name" >
@@ -9,7 +9,7 @@
             <van-icon class-prefix="my-icon" name="dengpao" color="#1296db" style="line-height: inherit;"/>
           </template>
           <template v-slot:right-icon>
-            <van-switch slot="right-icon" v-model="light.checked" size="24px" @change="lightSwitchChange"/>
+            <van-switch slot="right-icon" v-model="light.checked" size="24px" @change="lightSwitchChange(light.num,light.checked)"/>
           </template>
         </van-cell>
       </van-cell-group>
@@ -24,6 +24,11 @@
   import { Cell, CellGroup } from 'vant';
   import { Icon } from 'vant';
   import { Switch } from 'vant';
+  import { CHANGE_SEARCH_VALUE } from '../../vuex/mutation-types.js'
+  import { SEARCH_SINGLE_LIGHT } from '../../vuex/mutation-types.js'
+  import { SET_LIST_LOADING } from '../../vuex/mutation-types.js'
+  // 在单独构建的版本中辅助函数为 Vuex.mapState
+  //import { mapState } from 'vuex'
   
   export default {
     name: 'SingleLight',
@@ -39,22 +44,31 @@
     data () {
       return {
         msg: "我是SingleLight 组件",
-        searchValue:'',
-        loading:false,
-        finished:false,
-        singleLightList:[
-          {
-            num:77,
-            name:'逸夫楼/A座1层/77',
-            checked:true
-          },
-          {
-            num:66,
-            name:'逸夫楼/A座1层/66',
-            checked:false
-          },
-        ]
       }
+    },
+    computed: {
+      singleLightList () {
+        return this.$store.state.singleLight.singleLightList;
+      },
+      loading:{
+        get:function () {
+          return this.$store.state.singleLight.loading;
+        },
+        set:function (newValue) {
+          this.$store.commit(SET_LIST_LOADING, newValue);
+        }
+      },
+      searchValue:{
+        get:function () {
+          return this.$store.state.singleLight.searchValue;
+        },
+        set:function (newValue) {
+          this.$store.commit(CHANGE_SEARCH_VALUE, newValue);
+        }
+      },
+      finished (){
+        return this.$store.state.singleLight.finished;
+      },
     },
     methods:{
       onClickNavBarLeft:function(){
@@ -62,15 +76,13 @@
         this.$router.go(-1);
       },
       onSearchSingleLight:function(){
-        window.console.log(this.searchValue);
+        this.$store.dispatch(SEARCH_SINGLE_LIGHT);
       },
       onListLoad:function(){
-        // 加载状态结束
-        this.loading = false;
-        this.finished = true;
+        this.$store.dispatch(SEARCH_SINGLE_LIGHT);
       },
-      lightSwitchChange:function(checked){
-        window.console.log(checked);
+      lightSwitchChange:function(num, checked){
+        window.console.log("num" + num +":"+checked);
       }
     }
   }
