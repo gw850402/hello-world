@@ -27,6 +27,7 @@
   import { CHANGE_SEARCH_VALUE } from '../../vuex/mutation-types.js'
   import { SEARCH_SINGLE_LIGHT } from '../../vuex/mutation-types.js'
   import { SET_LIST_LOADING } from '../../vuex/mutation-types.js'
+  import { CHANGE_LIGHT_SWITCH } from '../../vuex/mutation-types.js'
   // 在单独构建的版本中辅助函数为 Vuex.mapState
   //import { mapState } from 'vuex'
   
@@ -39,11 +40,21 @@
       [Cell.name]: Cell,
       [CellGroup.name]: CellGroup,
       [Icon.name]: Icon,
-      [Switch.name]: Switch
+      [Switch.name]: Switch,
     },
     data () {
       return {
         msg: "我是SingleLight 组件",
+      }
+    },
+    beforeRouteEnter (to, from, next) {
+      if(from.path == "/"){
+        next();
+      }
+      else{
+        next(vm =>{
+          vm.$store.dispatch(SEARCH_SINGLE_LIGHT);
+        });
       }
     },
     computed: {
@@ -83,6 +94,7 @@
       },
       lightSwitchChange:function(num, checked){
         window.console.log("num" + num +":"+checked);
+        this.$store.dispatch(CHANGE_LIGHT_SWITCH,{num:num, checked:checked});
       }
     }
   }

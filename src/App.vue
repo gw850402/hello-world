@@ -25,7 +25,7 @@ export default {
   },
   methods:{
     changeTabbar:function(){
-      window.console.log(this.active);      
+      window.console.log(this.active);
     }
   }
 }
